@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Aria בונה פתרונות AI מותאמים שמתחברים לתהליכי העבודה הקיימים ועוזרים לעסקים לחסוך זמן, לצמצם עבודה ידנית ולשפר את השירות.">
   <title>Aria | AI שעובד בתוך העסק</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&amp;family=Rubik:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #ffffff;
@@ -24,9 +27,9 @@
       --warn:    #eab308;
       --danger:  #dc2626;
       --font-display:
-        "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        "Rubik", "Arial Hebrew", Arial, sans-serif;
       --font-body:
-        "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        "Assistant", "Arial Hebrew", Arial, sans-serif;
       --font-mono:
         "SF Mono", ui-monospace, "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
       --text-xs:   12px;
@@ -100,7 +103,7 @@
     }
     .eyebrow {
       margin: 0 0 var(--space-4); color: var(--accent); font-size: var(--text-sm);
-      font-weight: 600; letter-spacing: .04em;
+      font-family: var(--font-display); font-weight: 600; letter-spacing: 0;
     }
     h1, h2, h3 { margin: 0; font-family: var(--font-display); letter-spacing: var(--tracking-display); }
     h1 { max-width: 12ch; font-size: clamp(var(--text-3xl), 7vw, var(--text-4xl)); line-height: var(--leading-tight); }
@@ -114,7 +117,7 @@
     .btn {
       min-height: 46px; display: inline-flex; align-items: center; justify-content: center;
       gap: var(--space-2); padding: 10px var(--space-5); border: 0;
-      border-radius: var(--radius-pill); font-weight: 600; letter-spacing: .015em; text-decoration: none;
+      border-radius: var(--radius-pill); font-family: var(--font-display); font-weight: 600; letter-spacing: 0; text-decoration: none;
       position: relative; isolation: isolate; cursor: pointer; transform: translateY(0);
       transition: background var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard),
         transform var(--motion-base) var(--ease-standard), box-shadow var(--motion-base) var(--ease-standard);
@@ -219,7 +222,7 @@
     .tab-list { display: grid; align-content: start; gap: var(--space-2); }
     .tab {
       min-height: 58px; padding: var(--space-3) var(--space-4); border: 0; border-radius: var(--radius-md);
-      background: transparent; color: var(--muted); text-align: right; letter-spacing: .015em; cursor: pointer;
+      background: transparent; color: var(--muted); font-family: var(--font-display); text-align: right; letter-spacing: 0; cursor: pointer;
       transition: background var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard),
         transform var(--motion-base) var(--ease-standard), box-shadow var(--motion-base) var(--ease-standard);
     }

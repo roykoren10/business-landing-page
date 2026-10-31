@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Aria בונה פתרונות AI מותאמים שמתחברים לתהליכי העבודה הקיימים ועוזרים לעסקים לחסוך זמן, לצמצם עבודה ידנית ולשפר את השירות.">
   <title>Aria | AI שעובד בתוך העסק</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&amp;family=Rubik:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #ffffff;
@@ -24,9 +27,9 @@
       --warn:    #eab308;
       --danger:  #dc2626;
       --font-display:
-        "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        "Rubik", "Arial Hebrew", Arial, sans-serif;
       --font-body:
-        "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        "Assistant", "Arial Hebrew", Arial, sans-serif;
       --text-xs:   12px;
       --text-sm:   14px;
       --text-base: 17px;
@@ -106,7 +109,7 @@
     .btn {
       min-height: 46px; display: inline-flex; align-items: center; justify-content: center;
       gap: var(--space-2); padding: 10px var(--space-5); border: 0;
-      border-radius: var(--radius-pill); font-weight: 600; letter-spacing: .015em; text-decoration: none;
+      border-radius: var(--radius-pill); font-family: var(--font-display); font-weight: 600; letter-spacing: 0; text-decoration: none;
       cursor: pointer; transform: translateY(0);
       transition: background var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard),
         transform var(--motion-base) var(--ease-standard);
@@ -183,7 +186,7 @@
     .tab-list { display: grid; align-content: start; gap: var(--space-2); }
     .tab {
       min-height: 58px; padding: var(--space-3) var(--space-4); border: 0; border-radius: var(--radius-md);
-      background: transparent; color: var(--fg-2); text-align: right; letter-spacing: .015em; cursor: pointer;
+      background: transparent; color: var(--fg-2); font-family: var(--font-display); text-align: right; letter-spacing: 0; cursor: pointer;
       transition: background var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard),
         transform var(--motion-base) var(--ease-standard);
     }
@@ -290,20 +293,8 @@
     .credits { max-width: 72ch; color: var(--fg-2); font-size: var(--text-sm); text-align: left; }
     .credits a { text-underline-offset: 2px; }
     .credits a:hover { color: var(--accent-active); }
-    .mobile-cta {
-      display: none; position: fixed; z-index: 45; inset: auto var(--space-4) var(--space-4);
-      align-items: center; gap: var(--space-2); padding: var(--space-2); border-radius: var(--radius-pill);
-      background: var(--bg); box-shadow: var(--elev-overlay); /* taste-skill-ignore: focus ring or floating overlay */
-    }
-    .mobile-cta .btn { flex: 1; }
-    .mobile-cta button {
-      width: 44px; height: 44px; border: 0; border-radius: 50%; color: var(--fg-2); background: transparent; cursor: pointer;
-      transition: background var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard),
-        transform var(--motion-base) var(--ease-standard);
-    }
-    .mobile-cta button:hover { color: var(--fg); background: var(--surface); transform: translateY(-2px); }
-    .mobile-cta button:active { transform: translateY(0) scale(.92); }
-    .menu-toggle:focus-visible, .tab:focus-visible, .faq-question:focus-visible, .mobile-cta button:focus-visible {
+    .header-cta { display: none; }
+    .menu-toggle:focus-visible, .tab:focus-visible, .faq-question:focus-visible {
       box-shadow: var(--focus-ring); /* taste-skill-ignore: focus ring or floating overlay */
     }
 
@@ -333,6 +324,8 @@
       .nav-links a:not(.btn) { min-height: 52px; display: flex; align-items: center; padding: 0 var(--space-3); font-size: var(--text-base); }
       .nav-links .btn { margin-top: var(--space-3); }
       .menu-toggle { display: block; }
+      .header-cta { display: inline-flex; min-height: 40px; margin-inline-start: auto; padding: var(--space-2) var(--space-4); }
+      .nav { gap: var(--space-3); }
       .hero { min-height: auto; padding-block: var(--section-y-tablet); }
       .hero-grid { grid-template-columns: 1fr; }
       .hero-media { border-radius: var(--radius-lg); }
@@ -346,7 +339,6 @@
       .faq-question { padding-inline: var(--space-3); }
       .faq-answer { padding-inline: var(--space-3); }
       .footer-row { align-items: flex-start; flex-direction: column; }
-      .mobile-cta.visible { display: flex; }
     }
     @keyframes hero-copy-in {
       from { opacity: 0; transform: translateY(18px); }
@@ -381,7 +373,7 @@
       *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; }
       .btn:hover, .btn:active, .menu-toggle:hover, .menu-toggle:active, .tab:hover, .tab:active,
       .faq-question:hover, .faq-question:active, .faq-question:hover .faq-plus, .faq-question:active .faq-plus,
-      .mobile-cta button:hover, .mobile-cta button:active, .menu-toggle[aria-expanded="true"] span { transform: none; }
+      .menu-toggle[aria-expanded="true"] span { transform: none; }
     }
   </style>
 </head>
@@ -394,6 +386,7 @@
         <span class="brand-mark" aria-hidden="true">A</span>
         <span class="brand-word" lang="en">Aria</span>
       </a>
+      <a class="btn btn-primary header-cta" href="#contact">בואו נדבר</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="פתיחת תפריט" data-od-id="mobile-menu-button">
         <span></span><span></span>
       </button>
@@ -614,11 +607,6 @@
     </div>
   </footer>
 
-  <div class="mobile-cta" id="mobile-cta" aria-label="יצירת קשר מהירה">
-    <a class="btn btn-primary" href="#contact">בואו נדבר</a>
-    <button type="button" aria-label="סגירת כפתור יצירת קשר">×</button>
-  </div>
-
   <script>
     (function () {
       var menuButton = document.querySelector('.menu-toggle');
@@ -745,25 +733,6 @@
           submit.disabled = false; submit.textContent = 'שלחו לנו הודעה'; form.setAttribute('aria-busy', 'false');
         }
       });
-
-      var mobileCta = document.getElementById('mobile-cta');
-      var hero = document.querySelector('.hero');
-      var contact = document.getElementById('contact');
-      var dismissed = false;
-      var heroVisible = true;
-      var contactVisible = false;
-      function paintMobileCta() { mobileCta.classList.toggle('visible', !dismissed && !heroVisible && !contactVisible); }
-      mobileCta.querySelector('button').addEventListener('click', function () { dismissed = true; paintMobileCta(); });
-      if ('IntersectionObserver' in window) {
-        var ctaObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.target === hero) heroVisible = entry.isIntersecting;
-            if (entry.target === contact) contactVisible = entry.isIntersecting;
-          });
-          paintMobileCta();
-        }, { threshold: .05 });
-        ctaObserver.observe(hero); ctaObserver.observe(contact);
-      }
 
       // Each section's parts enter one after another; hidden tab panels are left out so they never stay transparent.
       var revealParts = 'h2, .section-head .lead, .pain-copy > .lead, .signal, .photo, .tab, .tab-panel:not([hidden]), .process-step, .founder-card, .principle, .faq-item, .contact-copy > .lead, .privacy-note, .contact-form';
